@@ -1,0 +1,25 @@
+{
+  "connection": "default",
+  "collectionName": "languages",
+  "info": {
+    "name": "language",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "comment": ""
+  },
+  "attributes": {
+    "Name": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    },
+    "Code": {
+      "unique": true,
+      "required": true,
+      "type": "string"
+    }
+  }
+}

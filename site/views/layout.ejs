@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- GENERAL -->
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Alex Perea Site</title>
+    <%- include('partials/header_css_js') %>
+</head>
+<body>
+
+<!-- HEADER <-->
+<header class="navbar-fixed-top">
+    <div class="container">
+        <div class="row">
+            <!-- HEADER TOP -->
+            <div class="col-lg-12">
+                <div class="header-top">
+                    <div class="header-top-logo">
+                        <a href="/en" title="Logo"><img src="/img/logo.png"  alt="Dblog Logo" data-rjs="2"></a>
+                    </div>
+                    <div class="header-top-text">
+                        <p><span class="font-italic">“Modern Javascript”</span>
+                            book is available! <a href="shop.html" title="Modern Javascript Book">Check out<i
+                                    class="pe-7s-angle-right"></i></a>
+                        </p>
+                    </div>
+                    <nav class="header-top-nav">
+                        <ul class="lang-change" >
+                            <li><a href="/es" ><img title="Español" src="/img/co.svg"  alt="es"></a></li>
+                            <li><a href="/en" ><img title="English" src="/img/us.svg"  alt="en"></a></li>
+                            <% /* <li><a href="/it" ><img title="Italiano" src="/img/it.svg"  alt="it"></a></li> --> */ %>
+                            <li class="header-top-nav-search">
+                                <a href="#" class="light-link" title="Search"><i class="pe-7s-search"></i></a>
+                                <form action="#" method="get">
+                                    <input type="text" class="form-control" placeholder="Search...">
+                                    <button type="submit"><i class="pe-7s-search"></i></button>
+                                </form>
+                            </li>
+                            <li><a href="#" class="light-link" title="Menu">
+                                <div id="menu-animate-icon" class="header-top-nav-menu-icon">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <!-- end HEADER TOP -->
+
+            <!-- HEADER NAVIGATION -->
+            <div class="col-lg-12">
+                    <nav class="header-nav">
+
+<div  class="main-navigation"  >
+            <ul>
+                          <li class="expanded dropdown" test-attr="Home" >
+      <a href="/en" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home</a>
+                </li>
+                      <li class="expanded dropdown">
+      <a href="/en" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Blog articles<span class="caret"></span></a>
+                                <ul class="dropdown-menu" >
+                          <li class="nav-elipse-red expanded dropdown" test-attr="HTML" >
+      <a href="/en/blog/category/html" data-drupal-link-system-path="taxonomy/term/10">HTML</a>
+                </li>
+                      <li class="nav-elipse-yellow expanded dropdown" test-attr="JAVASCRIPT" >
+      <a href="/en/blog/category/javascript" data-drupal-link-system-path="taxonomy/term/9">JAVASCRIPT</a>
+                </li>
+                      <li class="nav-elipse-light-green expanded dropdown" test-attr="NODE JS" >
+      <a href="/en/blog/category/node-js" data-drupal-link-system-path="taxonomy/term/4">NODE JS</a>
+                </li>
+                      <li class="nav-elipse-light-purple expanded dropdown" test-attr="PHP" >
+      <a href="/en/blog/category/php" data-drupal-link-system-path="taxonomy/term/3">PHP</a>
+                </li>
+                      <li class="nav-elipse-blue expanded dropdown" test-attr="PYTHON" >
+      <a href="/en/blog/category/python" data-drupal-link-system-path="taxonomy/term/11">PYTHON</a>
+                </li>
+                      <li class="nav-elipse-dark-grey expanded dropdown" test-attr="SERVERS" >
+      <a href="/en/blog/category/servers" data-drupal-link-system-path="taxonomy/term/12">SERVERS</a>
+                </li>
+      </ul>
+
+          </li>
+                      <li class="expanded dropdown" test-attr="About me" >
+      <a href="/en/about-me" data-drupal-link-system-path="node/1">About me</a>
+                </li>
+                      <li class="expanded dropdown" test-attr="Contact me" >
+      <a href="/en/contact" data-drupal-link-system-path="contact">Contact me</a>
+                </li>
+      </ul>
+
+</div>
+<ul class="lang-change" >
+  <li><a href="/es" ><img title="Español" src="/img/co.svg"  alt="es"></a></li>
+  <li><a href="/en" ><img title="English" src="/img/us.svg"  alt="en"></a></li>
+  <%/*  <li><a href="/it" ><img title="Italiano" src="/img/it.svg"  alt="it"></a></li> */ %>
+</ul>
+</nav>
+
+
+            </div>
+        </div>
+        <!-- end HEADER NAVIGATION -->
+
+    </div>
+</header>
+<!-- end HEADER -->
+<!-- MOBILE NAVIGATION -->
+
+<nav class="mobile-nav header-nav">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <!-- Auto Copy Header Navigation -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- end MOBILE NAVIGATION -->
+
+
+<%- body %>
+
+<!-- FOOTER -->
+<%- include('partials/footer') %>
+<!-- end FOOTER -->
+
+<%- include('partials/footer_scripts') %>
+
+</body>
+</html>

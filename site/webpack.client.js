@@ -1,5 +1,5 @@
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const outputDirectory = 'dist';
 
@@ -29,5 +29,10 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx']
-  }
+  },
+  plugins:[
+    new CopyWebpackPlugin([
+      { from: './src/assets' }
+    ])
+  ]
 };

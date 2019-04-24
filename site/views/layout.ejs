@@ -58,30 +58,17 @@
 
 <div  class="main-navigation"  >
             <ul>
-                          <li class="expanded dropdown" test-attr="Home" >
+              <li class="expanded dropdown" test-attr="Home" >
       <a href="/en" data-drupal-link-system-path="&lt;front&gt;" class="is-active">Home</a>
                 </li>
                       <li class="expanded dropdown">
       <a href="/en" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Blog articles<span class="caret"></span></a>
-                                <ul class="dropdown-menu" >
-                          <li class="nav-elipse-red expanded dropdown" test-attr="HTML" >
-      <a href="/en/blog/category/html" data-drupal-link-system-path="taxonomy/term/10">HTML</a>
+                        <ul class="dropdown-menu" >
+                        <% blog_articles_menu.forEach(function(menu){ %>
+                          <li class="<%= menu.class %> expanded dropdown" test-attr="<%= menu.name %>" >
+      <a href="/en/blog/category/<%= menu.slug %>" data-drupal-link-system-path="taxonomy/term/10"><%= menu.name %></a>
                 </li>
-                      <li class="nav-elipse-yellow expanded dropdown" test-attr="JAVASCRIPT" >
-      <a href="/en/blog/category/javascript" data-drupal-link-system-path="taxonomy/term/9">JAVASCRIPT</a>
-                </li>
-                      <li class="nav-elipse-light-green expanded dropdown" test-attr="NODE JS" >
-      <a href="/en/blog/category/node-js" data-drupal-link-system-path="taxonomy/term/4">NODE JS</a>
-                </li>
-                      <li class="nav-elipse-light-purple expanded dropdown" test-attr="PHP" >
-      <a href="/en/blog/category/php" data-drupal-link-system-path="taxonomy/term/3">PHP</a>
-                </li>
-                      <li class="nav-elipse-blue expanded dropdown" test-attr="PYTHON" >
-      <a href="/en/blog/category/python" data-drupal-link-system-path="taxonomy/term/11">PYTHON</a>
-                </li>
-                      <li class="nav-elipse-dark-grey expanded dropdown" test-attr="SERVERS" >
-      <a href="/en/blog/category/servers" data-drupal-link-system-path="taxonomy/term/12">SERVERS</a>
-                </li>
+                <% }); %>
       </ul>
 
           </li>

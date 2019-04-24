@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/server/index.js',
+  entry: ['babel-polyfill', './src/server/index.js'],
 
   target: 'node',
 

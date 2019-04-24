@@ -20,6 +20,17 @@
       "required": true,
       "unique": true,
       "type": "string"
+    },
+    "class": {
+      "enum": [
+        "nav-elipse-red",
+        "nav-elipse-yellow",
+        "nav-elipse-light-green",
+        "nav-elipse-light-purple",
+        "nav-elipse-blue",
+        "nav-elipse-dark-grey"
+      ],
+      "type": "enumeration"
     }
   }
 }

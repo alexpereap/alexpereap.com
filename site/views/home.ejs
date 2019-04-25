@@ -7,22 +7,16 @@
             <!-- ARTICLES -->
             <div class="col-lg-8 col-xs-12">
                 <section class="articles">
-                    <article class="blue-article">
+                <% posts.forEach(function(post){ %>
+                    <article class="<%- post.article_class %>">
                         <div class="articles-header">
                             <time datetime="2016-10-11">12 hours ago</time>
                             <span class="articles-header-tag-blue">Hot</span>
-                            <span class="articles-header-category"><a href="#" class="blue" title="">CSS</a></span>
+                            <span class="articles-header-category"><a href="#" title=""><%- post.category_name %></a></span>
                         </div>
                         <div class="articles-content">
-                            <h1><a href="blog_post.html" title="">10 Interview Questions Every JavaScript Developer
-                                Should Know</a></h1>
-                            <p>
-                                I was young, single, and freshly employed to direct National Journal’s Presentation
-                                Center, a searchable library of white-label
-                                PowerPoint presentations on political and policy developments. By day, I led a team of
-                                fellows in creating data
-                                visualizations...
-                            </p>
+                            <h1><a href="blog_post.html" title=""><%- post.title_en %></a></h1>
+                            <p><%- post.excerpt %></p>
                         </div>
                         <div class="articles-footer">
                             <ul class="articles-footer-info">
@@ -34,82 +28,9 @@
 
                         </div>
                     </article>
+                  <% }); %>
 
-                    <article class="red-article">
-                        <div class="articles-header">
-                            <time datetime="2016-10-11">January 16, 2016</time>
-                            <span class="articles-header-category"><a href="#" class="red"
-                                                                      title="">Javascript</a></span>
-                        </div>
-                        <div class="articles-content">
-                            <h1><a href="blog_post.html" title="">State of the Art JavaScript in 2016</a></h1>
-                            <p>
-                                Class in JS is not harmless sugar for prototypal OO. Class is a virus that infects
-                                everything it touches. It came to us formally
-                                in
-                                JavaScript with ES6, and at the same time, React was taking off. Lots of people started
-                                using classes for React components...
-                            </p>
-                        </div>
-                        <div class="articles-footer">
-                            <ul class="articles-footer-info">
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-comment"></i> 7 Response</a>
-                                </li>
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-like"></i> 1221</a></li>
-                            </ul>
-                            <a title="" class="btn" href="blog_post.html">Read more</a>
-                        </div>
-                    </article>
 
-                    <article class="yellow-article">
-                        <div class="articles-header">
-                            <time datetime="2016-10-11">12 hours ago</time>
-                            <span class="articles-header-category"><a title="" href="#" class="yellow">CSS</a></span>
-                        </div>
-                        <div class="articles-content">
-                            <h1><a title="" href="#">Want to learn JavaScript in 2016?</a></h1>
-                            <p>
-                                This is a walk-through of the steps I personally took in a single year, to begin
-                                learning JavaScript. My goal was to be able to
-                                get
-                                a job in a position where Javascript would be at the forefront of what I do on a daily
-                                basis...
-                            </p>
-                        </div>
-                        <div class="articles-footer">
-                            <ul class="articles-footer-info">
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-comment"></i> 7 Response</a>
-                                </li>
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-like"></i> 1221</a></li>
-                            </ul>
-                            <a title="" class="btn" href="blog_post.html">Read more</a>
-                        </div>
-                    </article>
-
-                    <article>
-                        <div class="articles-header">
-                            <time datetime="2016-10-11">12 hours ago</time>
-                            <span class="articles-header-category"><a title="" href="#" class="grey">Other</a></span>
-                        </div>
-                        <div class="articles-content">
-                            <h1><a title="" href="blog_post.html">Want to learn JavaScript in 2016?</a></h1>
-                            <p>
-                                This is a walk-through of the steps I personally took in a single year, to begin
-                                learning JavaScript. My goal was to be able to
-                                get
-                                a job in a position where Javascript would be at the forefront of what I do on a daily
-                                basis...
-                            </p>
-                        </div>
-                        <div class="articles-footer">
-                            <ul class="articles-footer-info">
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-comment"></i> 7 Response</a>
-                                </li>
-                                <li><a title="" href="#" class="light-link"><i class="pe-7s-like"></i> 1221</a></li>
-                            </ul>
-                            <a title="" class="btn" href="blog_post.html">Read more</a>
-                        </div>
-                    </article>
 
                     <!-- PAGINATION -->
                     <nav aria-label="...">
@@ -150,11 +71,9 @@
                 <aside class="categories">
                     <h2 class="aside-title">Categories</h2>
                     <ul>
-                        <li class="nav-elipse-blue"><a href="#" title="Blog CSS articles">CSS</a></li>
-                        <li class="nav-elipse-red"><a href="#" title="Blog HTML articles">HTML</a></li>
-                        <li class="nav-elipse-yellow"><a href="#" title="Blog Javascript articles">Javascript</a></li>
-                        <li class="nav-elipse-green"><a href="#" title="Blog raphic articles">Graphic</a></li>
-                        <li><a href="#" title="Blog other articles">Other</a></li>
+                      <% blog_articles_menu.forEach(function(menu){ %>
+                        <li class="<%- menu.class %>"><a href="#" title="Blog CSS articles"><%- menu.name %></a></li>
+                      <% }); %>
                     </ul>
                 </aside>
 

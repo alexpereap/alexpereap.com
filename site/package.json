@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "ejs": "^2.6.1",
+    "excerpt-html": "^1.2.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
     "mysql2": "^1.6.5",

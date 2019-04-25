@@ -1,7 +1,6 @@
 import express from 'express';
 import expressLayouts from 'express-ejs-layouts';
 import Sequelize from 'sequelize';
-import excerptHtml from 'excerpt-html';
 
 const path = require('path');
 const PORT = process.env.PORT || 3006;
@@ -22,7 +21,15 @@ const CategoryModel = require('./models/Category');
 const Category = CategoryModel(sequelize, Sequelize);
 
 const PostModel = require('./models/Post');
-const Post = PostModel(sequelize, Sequelize);
+const Post = PostModel.Post(sequelize, Sequelize);
+
+const TagModel = require('./models/Tag');
+const tag = TagModel(sequelize, Sequelize);
+
+const AuthorModel = require('./models/Author');
+const author = AuthorModel(sequelize, Sequelize);
+
+const paginator = require('./utils/paginator');
 
 app.use(express.static('./dist'));
 app.set('view engine', 'ejs');
@@ -31,43 +38,41 @@ app.use(expressLayouts);
 app.locals.blog_articles_menu = [];
 
 async function server(){
+
+  // sets catevories in locals variable
   app.locals.blog_articles_menu = await Category.findAll();
 
-  app.get('/', async (req, res) => {
-    const posts = await sequelize.query(`SELECT p.*, c.name as category_name, c.slug as category_slug, c.class as category_class
-                                         FROM posts p INNER JOIN categories c ON p.category = c.id`, { type: sequelize.QueryTypes.SELECT});
+  // sets the language
+  let lang;
 
-    posts.forEach( (post, index) => {
-      switch(post.category_class){
-        case 'nav-elipse-red':
-          posts[index].article_class = 'red-article';
-          break;
+  const middleware = async (req, res, next) => {
+    console.log(req.params.lang);
+    lang = req.params.lang ? req.params.lang : 'en';
+    app.locals.lang = lang;
+    app.locals.tags = await tag.findAll({ order: Sequelize.literal('RAND()'), limit: 6 });
+    next();
+  };
 
-        case 'nav-elipse-yellow':
-          post.article_class = 'yellow-article';
-          break;
-
-        case 'nav-elipse-light-green':
-          post.article_class = 'light-green-article';
-          break;
-
-        case 'nav-elipse-light-purple':
-          post.article_class = 'purple-article';
-          break;
-
-        case 'nav-elipse-blue':
-          post.article_class = 'blue-article';
-          break;
-
-        case 'nav-elipse-dark-grey':
-          post.article_class = 'dark-grey-article';
-          break;
+  app.get('/:lang?', middleware, async (req, res) => {
+    console.log(lang);
+    const posts =  await PostModel.getHomePosts(
+      sequelize,
+      {
+        lang,
+        page: req.query.page
       }
+    );
 
-      post.excerpt = excerptHtml(post.content_en,{pruneLength: 500});
+    const posts_count = await PostModel.getTotalPosts(sequelize);
+    // TODO: change post to be a class, so posts count is a class attribute
+    const pagination = paginator(req.query.page, posts_count, 4);
+    const author_profile = await author.findOne({
+      where:{id:1}
     });
 
-    res.render('home', {posts: posts});
+    console.log(author_profile);
+
+    res.render('home', {posts, pagination, author_profile});
   });
 }
 

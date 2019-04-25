@@ -10,20 +10,14 @@
                 <% posts.forEach(function(post){ %>
                     <article class="<%- post.article_class %>">
                         <div class="articles-header">
-                            <time datetime="2016-10-11">12 hours ago</time>
-                            <span class="articles-header-tag-blue">Hot</span>
+                            <time datetime="2016-10-11"><%- post.date %></time>
                             <span class="articles-header-category"><a href="#" title=""><%- post.category_name %></a></span>
                         </div>
                         <div class="articles-content">
-                            <h1><a href="blog_post.html" title=""><%- post.title_en %></a></h1>
+                            <h1><a href="blog_post.html" title=""><%- post.title %></a></h1>
                             <p><%- post.excerpt %></p>
                         </div>
                         <div class="articles-footer">
-                            <ul class="articles-footer-info">
-                                <li><a href="#" class="light-link" title=""><i class="pe-7s-comment"></i> 7 Response</a>
-                                </li>
-                                <li><a href="#" class="light-link" title=""><i class="pe-7s-like"></i> 1221</a></li>
-                            </ul>
                             <a title="" class="btn" href="blog_post.html">Read more</a>
 
                         </div>
@@ -34,54 +28,25 @@
 
                     <!-- PAGINATION -->
                     <nav aria-label="...">
-                        <a title="" href="" class="btn-small-white pagination-back">Back</a>
-                        <ul class="pagination">
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item page-item-more"><a class="page-link" href="#">...</a></li>
-                            <li class="page-item"><a class="page-link" href="#">25</a></li>
-                        </ul>
-                        <a title="" href="blog_post.html" class="btn-small-white pagination-next">Next</a>
-                    </nav>
+                      <%- pagination %>
+                  </nav>
 
                 </section>
             </div>
 
-            <!-- AUTHOR -->
+
             <div class="aside-blocks col-lg-4 col-xs-12">
-                <aside class="author">
-                    <img src="/img/profile-picture.png" alt="" data-rjs="2">
-                    <h2>Bill Gates</h2>
-                    <span class="author-info">Front-End Developer</span>
-                    <span class="author-info">Microsoft Company</span>
-                    <div class="social">
-                        <a href="" title="Twitter"><i class="icon-social_twitter_circle"></i></a>
-                        <a href="" title="Github"><i class="icon-social_github_circle"></i></a>
-                        <a href="" title="LinkedIn"><i class="icon-social_linkedin_circle"></i></a>
-                    </div>
-                    <ul class="author-nav">
-                        <li><a href="" title=""><i class="pe-7s-bookmarks"></i> Download my CV</a></li>
-                        <li><a href="" title=""><i class="pe-7s-paper-plane"></i> Write message</a></li>
-                    </ul>
-                </aside>
+                <!-- AUTHOR -->
+                <%- include('partials/right-block-author', {author_profile} ) %>
 
-                <aside class="categories">
-                    <h2 class="aside-title">Categories</h2>
-                    <ul>
-                      <% blog_articles_menu.forEach(function(menu){ %>
-                        <li class="<%- menu.class %>"><a href="#" title="Blog CSS articles"><%- menu.name %></a></li>
-                      <% }); %>
-                    </ul>
-                </aside>
+                <!-- Categories block -->
+                <%- include('partials/right-block-categories') %>
 
-                <aside class="advertisement">
+                <%/* <aside class="advertisement">
                     <a href=""><img src="/img/advertisement.jpg" alt="Advertisement" data-rjs="2"></a>
-                </aside>
+                </aside> */%>
 
-                <aside class="last-project">
+                <%/* <aside class="last-project">
                     <h2 class="aside-title">Last Project</h2>
                     <div class="last-project-one">
                         <h3 class="h4"><a href="">Microsoft TypeScript</a></h3>
@@ -90,19 +55,9 @@
                             JavaScript developers know... </p>
                         <a href="#" title="Watch it" class="btn btn-small">Watch it</a>
                     </div>
-                </aside>
+                </aside> */%>
 
-                <aside class="tags">
-                    <h2 class="aside-title">Tags</h2>
-                    <div class="tags-content">
-                        <span class="tag tag-pill tag-default"><a href="">graphic</a></span>
-                        <span class="tag tag-pill tag-default"><a href="">angular2</a></span>
-                        <span class="tag tag-pill tag-default"><a href="">graphic</a></span>
-                        <span class="tag tag-pill tag-default"><a href="">react</a></span>
-                        <span class="tag tag-pill tag-default"><a href="">it</a></span>
-                        <span class="tag tag-pill tag-default"><a href="">science</a></span>
-                    </div>
-                </aside>
+                <%- include('partials/right-block-tags') %>
 
             </div>
         </div>

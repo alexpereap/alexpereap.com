@@ -10,8 +10,8 @@
     "build": "rm -r -f dist && npm-run-all client:build-prod server:build-prod",
     "build:dev": "npm run client:build-dev && npm run server:build-dev",
     "start": "node dist/server.js",
-    "server:build-dev-hot": "NODE_ENV=development webpack --mode development --config webpack.server.js --watch",
-    "server:build-dev": "NODE_ENV=development webpack --mode development --config webpack.server.js",
+    "server:build-dev-hot": "webpack --mode development --config webpack.server.js --watch",
+    "server:build-dev": "webpack --mode development --config webpack.server.js",
     "server:build-prod": "webpack --mode production --config webpack.server.js",
     "server:start": "nodemon dist/server.js",
     "test": "jest --runInBand --verbose",
@@ -59,11 +59,13 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "date-format": "^2.0.0",
     "ejs": "^2.6.1",
     "excerpt-html": "^1.2.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
     "mysql2": "^1.6.5",
+    "pagination": "^0.4.6",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sequelize": "^5.7.4"
